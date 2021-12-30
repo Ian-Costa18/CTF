@@ -2,7 +2,7 @@
 
 ---
 
-# Web 
+# Web
 
 ## Enumeration
 - [ ] Nikto Scan
@@ -16,7 +16,7 @@
 	- [ ] Wappalyzer/BuiltWith
 
 ### Hidden Pages
-- [ ] Feroxbuster (feroxbuster --url $url:$port --wordlist $wl -x ext)   
+- [ ] Feroxbuster (feroxbuster --url $url:$port --wordlist $wl -x ext)
 - [ ] robots.txt
 - [ ] sitemap.xml
 - [ ] OSINT
