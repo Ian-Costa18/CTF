@@ -1,0 +1,24 @@
+# Ignore Scan Results
+**/scans
+**/results*
+**/results/
+
+
+# Ignore Obsidian folder and VS Code
+.obsidian/
+.vscode/
+
+
+# Ignore CTF Folders
+HTB-*/
+Secret/
+Backdoor/
+
+JRPenetrationTester/
+NetSecChallenge/
+
+
+# Ignore all files except notes
+*/**
+!**/notes.md
+
