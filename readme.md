@@ -1,6 +1,6 @@
 # CTF Folder
 
-Hello everyone, this is the folder I use to keep track of capture-the-flag (CTF) challenges that I complete. In each folder is a notes.md file. This is my personal log of what I did to complete the challenge. It's very useful for getting back into systems when my shell inevitably fails. I also use it as a reference for future challenges where the same tool or attack vector. These notes are often quickly written while scans are being run, so apologies for any spelling or grammar mistakes.
+Hello everyone, this is the folder I use to keep track of capture-the-flag (CTF) challenges that I complete. In each folder is a notes.md file. This is my personal log of what I did to complete the challenge. It's very useful for getting back into systems when my shell inevitably dies. I also use it as a reference for future challenges where the same tool or attack vector is used. These notes are often quickly written while scans are being run, so apologies for any spelling or grammar mistakes.
 
 I removed all of the payloads, scripts, and other random files to keep the repository clean.
 
