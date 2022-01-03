@@ -1,7 +1,6 @@
 #!/bin/bash
 
 ctf_name=$1
-ctf_dir=~/CTF/$ctf_name
 ip_address=$2
 export IP=$ip_address
 
@@ -9,7 +8,8 @@ echo Adding $IP to hosts as $ctf_name.ctf
 echo "# IP from the $ctf_name CTF" | sudo tee -a /etc/hosts
 echo "$IP $ctf_name.ctf" | sudo tee -a /etc/hosts
 
-mkdir $ctf_dir
+mkdir $ctf_name
+ctf_dir=$(readlink -f $ctf_name)
 cd $ctf_dir
 echo Created Directory: $ctf_dir
 mkdir scans
