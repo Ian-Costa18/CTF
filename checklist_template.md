@@ -142,7 +142,7 @@
 	- [ ] SetUID: `find / -type f -perm -04000 -ls 2>/dev/null` & gtfobins.github.io/#+suid
 	- [ ] Capabilities: `getcap -r / 2>/dev/null` & gtfobins.github.io/#+capabilities
 	- [ ] Cron: `crontab -l` or `cat /etc/crontab`
-	- [ ] PATH: Find SUID binary that runs a exe using PATH instead of direct reference
+	- [ ] PATH: Find SUID binary that runs an exe using PATH instead of direct reference
 	- [ ] NFS: Find NFS with no_root_squash, mount and create SUID binary/shell
 		- Find NFS: `cat /etc/exports | grep no_root_squash`
 		- Find NFS on attacker machine: `kali$: showmount -e $IP`
