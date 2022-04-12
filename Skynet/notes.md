@@ -19,7 +19,7 @@ Theres a share named "milesdyson" could that be a username?
 
 Login page: /squirrelmail/src/login.php
 
-Using Hydra to brute force gives us a login! `milesdyson:cyborg007haloterminator`
+Using Hydra to brute force gives us a login! `milesdyson:$PASSWORD`
 
 Email titled "Samba password reset" gives us a possible SMB password: ")s{A&2Z=F^n_E.B`"
 

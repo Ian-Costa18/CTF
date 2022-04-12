@@ -13,9 +13,11 @@ SMB on port 445
 
 `smbclient //Blog.ctf/BillySMB`
 
+Cracking password of kwheel using wpscan:
+
 ```
 [!] Valid Combinations Found:
- | Username: kwheel, Password: cutiepie1
+ | Username: kwheel, Password: $PASSWORD
 ```
 
 ## Exploitation
@@ -36,7 +38,7 @@ Initially tried to find user credentials, such as in the Wordpress MYSQL instanc
 ```
 define('DB_NAME', 'blog');
 define('DB_USER', 'wordpressuser');
-define('DB_PASSWORD', 'LittleYellowLamp90!@');
+define('DB_PASSWORD', '$PASSWORD');
 define('DB_HOST', 'localhost');
 
 unix  2      [ ACC ]     STREAM     LISTENING     23176    /var/run/mysqld/mysqld.sock
