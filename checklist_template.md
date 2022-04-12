@@ -14,6 +14,8 @@
 	- [ ] HTTP Headers
 	- [ ] Favicon (https://wiki.owasp.org/index.php/OWASP_favicon_database)
 	- [ ] Wappalyzer/BuiltWith
+- [ ] Download HTTP directorys recursively
+	- `wget -r -np -nH --cut-dirs=1 -R index.html http://hostname/aaa/`
 
 ### Hidden Pages
 - [ ] Feroxbuster (feroxbuster --url $url:$port --wordlist $wl -x ext)
@@ -137,6 +139,7 @@
 
 ## Priv Esc
 - [ ] Upgrade Shell
+	- `python -c 'import pty; pty.spawn("/bin/bash")'`
 - [ ] linPEAS
 	- [ ] Sudo: `sudo -l` & gtfobins.github.io/#+sudo
 	- [ ] SetUID: `find / -type f -perm -04000 -ls 2>/dev/null` & gtfobins.github.io/#+suid
@@ -161,3 +164,10 @@
 - [ ] Check linPEAS for containers
 - [ ] Auto-Escape with CDK (github.com/cdk-team/CDK)
 - [ ] Check for Scripts being ran from host
+
+
+# Reversing
+
+TODO: Add section on reversing binaries
+
+- [ ] strace, ltrace, ptrace
