@@ -22,7 +22,6 @@
 		- `nmap --script ssl-enum-ciphers -p 443 DOMAIN`
 	- [ ] HTTP Methods
 		- `nmap -p 443 --script http-methods`
-	- [ ]  
 
 ### Hidden Pages
 - [ ] Feroxbuster (feroxbuster --url $url:$port --wordlist $wl -x ext)
