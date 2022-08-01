@@ -3,6 +3,7 @@
 ---
 
 # Web
+- https://github.com/riramar/Web-Attack-Cheat-Sheet
 
 ## Enumeration
 - [ ] Nikto Scan
@@ -16,6 +17,12 @@
 	- [ ] Wappalyzer/BuiltWith
 - [ ] Download HTTP directorys recursively
 	- `wget -r -np -nH --cut-dirs=1 -R index.html http://hostname/aaa/`
+- NMap Scans
+	- [ ] Weak SSL ciphers
+		- `nmap --script ssl-enum-ciphers -p 443 DOMAIN`
+	- [ ] HTTP Methods
+		- `nmap -p 443 --script http-methods`
+	- [ ]  
 
 ### Hidden Pages
 - [ ] Feroxbuster (feroxbuster --url $url:$port --wordlist $wl -x ext)
@@ -41,6 +48,7 @@
 	- [ ] Email Enumeration (See Username Enumeration, change to password reset forms) *NOISY*
 - [ ] Logic Flaws
 - [ ] Cookie Tampering
+- [ ] SQL Injection
 
 ### File Inclusion
 - tryhackme.com/room/fileinc
@@ -50,7 +58,13 @@
 - [ ] Remote File Inclusion
 - [ ] Base64 Encode (php://filter/convert.base64-encode/resource=)
 
-### Server-Side Request Forgery
+### Insecure Object Reference (IDOR)
+- https://tryhackme.com/room/idor
+- [ ] Check for IDs
+- [ ] Encoded/Hashed IDs
+- [ ] Unpredictable IDs (swap two account's IDs)
+
+### Server-Side Request Forgery (SSRF)
 - tryhackme.com/room/ssrfqi
 - requestbin.com
 - [ ] Filter Bypass
@@ -58,6 +72,20 @@
 	- [ ] Allow List (Create malicious subdomain)
 	- [ ] Open Redirect (Payload points to page which redirects to another website)
 - [ ] Check Cloud IP (169.254.169.254)
+
+### SQL Injection
+- https://tryhackme.com/room/sqlinjectionlm
+- [ ] SQLMap
+- [ ] Error-based
+- [ ] Union-based
+- [ ] Blind SQLi
+- [ ] Out-of-Band SQL
+
+### Command Injection
+- https://tryhackme.com/room/oscommandinjection
+- [ ] Enumerate the programming language (PHP,Python,JS,etc.) or comand language (Bash,Bash,PowerShell,etc.)
+- [ ] Blind CI
+- [ ] Verbose CI
 
 ### Cross-Site Scripting (XSS)
 - [ ] Reflected XSS
