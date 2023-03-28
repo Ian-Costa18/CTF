@@ -2,14 +2,16 @@
 
 ctf_name=$1
 ip_address=$2
+tld=${3:-ctf}
 export IP=$ip_address
+export CTF="$ctf_name.$tld"
 
-echo Adding $IP to hosts as $ctf_name.ctf
+echo Adding $IP to hosts as $CTF
 echo "# IP from the $ctf_name CTF" | sudo tee -a /etc/hosts
-echo "$IP $ctf_name.ctf" | sudo tee -a /etc/hosts
+echo "$IP $CTF" | sudo tee -a /etc/hosts
 
 mkdir $ctf_name
-ctf_dir=$(readlink -f $ctf_name)
+export ctf_dir=$(readlink -f $ctf_name)
 cd $ctf_dir
 echo Created Directory: $ctf_dir
 mkdir scans
@@ -18,8 +20,14 @@ cat /home/kali/CTF/notes_template.md | sed "s/IPADDRESS/$ip_address/" | sed "s/C
 echo Created Notes File
 
 cat /home/kali/CTF/checklist_template.md > $ctf_dir/checklist.md
+echo Created Checklist File
+
+echo "User: " >> $ctf_dir/flag.txt
+echo "Root: " >> $ctf_dir/flag.txt
+echo Created Flag File
 
 echo Starting AutoRecon
 cd scans
-autorecon -v $ctf_name.ctf
-
+echo "Running autorecon -v $CTF in $(pwd)"
+autorecon -v $CTF
+echo AutoRecon complete

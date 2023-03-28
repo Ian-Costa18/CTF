@@ -18,7 +18,8 @@ JRPenetrationTester/
 NetSecChallenge/
 eJPT/
 
-# Ignore all files except notes
+# Ignore all files except notes and .gitignore files
 */**
 !**/notes.md
+!**/.gitignore
 
